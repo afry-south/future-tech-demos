@@ -13,7 +13,7 @@ def load_retriever() -> TfidfRetriever:
     document_store = InMemoryDocumentStore()
 
     converter = PDFToTextConverter(remove_numeric_tables=True, valid_languages=['sv'])
-    doc = converter.convert(file_path='omsverige_v7_se.pdf', encoding='UTF-8', meta=None)
+    doc = converter.convert(file_path='qa-sweden/omsverige_v7_se.pdf', encoding='UTF-8', meta=None)
 
     processor = PreProcessor(
         clean_empty_lines=True,
