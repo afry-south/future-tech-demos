@@ -7,7 +7,7 @@ import sys
 import logging
 import pandas as pd
 import streamlit as st
-#from annotated_text import annotated_text
+from annotated_text import annotated_text
 
 from qaengine import predict
 
@@ -29,7 +29,7 @@ def annotate_answer(answer, context):
     end_idx = start_idx + len(answer)
     # calculate dynamic height depending on context length
     height = int(len(context) * 0.50) + 5
-    annotated_text(context[:start_idx], (answer, "ANSWER", "#8ef"), context[end_idx:], height=height)
+    annotated_text(context[:start_idx], (answer, "ANSWER", "#8ef"), context[end_idx:])
 
 
 def show_plain_documents(text):
@@ -66,124 +66,58 @@ def main():
     st.sidebar.header("Val")
     top_k_reader = st.sidebar.slider("Max. antal svar", min_value=1, max_value=10, value=3, step=1)
     top_k_retriever = st.sidebar.slider(
-        "Max. antal dokument från 'Retrievern'", min_value=1, max_value=10, value=3, step=1
+        "Max. antal dokument från 'Retrievern'", min_value=1, max_value=20, value=10, step=1
     )
-    eval_mode = st.sidebar.checkbox("Evalueringsläge")
+    # eval_mode = st.sidebar.checkbox("Evalueringsläge")
     debug = st.sidebar.checkbox("Visa debuginformation")
 
-    st.sidebar.write("## Filuppladning:")
-    data_files = st.sidebar.file_uploader("", type=["pdf", "txt", "docx"], accept_multiple_files=True)
-    for data_file in data_files:
-        # Upload file
-        if data_file:
-            raw_json = upload_doc(data_file)
-            st.sidebar.write(raw_json)
-            if debug:
-                st.subheader("REST API JSON response")
-                st.sidebar.write(raw_json)
-
-    # load csv into pandas dataframe
-    #   if eval_mode:
-    #       try:
-    #           df = pd.read_csv(eval_labels, sep=";")
-    #       except Exception:
-    #           sys.exit("Evalueringsfilen kunde ej hittas. Se README för mer information.")
-    #       if (
-    #           state_question
-    #           and hasattr(state_question, "next_question")
-    #           and hasattr(state_question, "random_question")
-    #           and state_question.next_question
-    #       ):
-    #           random_question = state_question.random_question
-    #           random_answer = state_question.random_answer
-    #       else:
-    #           random_question, random_answer = random_questions(df)
-    #           state_question.random_question = random_question
-    #           state_question.random_answer = random_answer
-#   
-    #   # Get next random question from the CSV
-    #   if eval_mode:
-    #       next_question = st.button("Ladda ny fråga")
-    #       if next_question:
-    #           random_question, random_answer = random_questions(df)
-    #           state_question.random_question = random_question
-    #           state_question.random_answer = random_answer
-    #           state_question.next_question = True
-    #           state_question.run_query = False
-    #       else:
-    #           state_question.next_question = False
+    st.text("""
+    Exempelinput:
+      När fick kvinnor börja rösta i Sverige?
+      Vart bor samerna?
+      Hur gammal måste jag vara för att få dricka alkohol?
+      Vad får jag slänga i toaletten?
+      När blir man myndig?
+      När var första världskriget?
+      Vem var Olof Palme?
+      hur fungerar det med arv i sverige?
+      finns det tandvård i sverige?
+    """)
 
     # Search bar
     question = st.text_input("Var snäll skriv din fråga:", value=random_question)
-    #if state_question and state_question.run_query:
-    #    run_query = state_question.run_query
-    #    st.button("Kör")
-    #else:
-    #    run_query = st.button("Kör")
-    #    state_question.run_query = run_query
-
+   
     raw_json_feedback = ""
 
-    with st.spinner("⌛️ &nbsp;&nbsp; QA-maskinen startar..."):
-        if not haystack_is_ready():
-            st.error("🚫 &nbsp;&nbsp; Connection Error. Kör QA-maskinen?")
-            run_query = False
-
     # Get results for query
-    if run_query:
+    if len(question):
         with st.spinner(
             "🧠 &nbsp;&nbsp; Genomför neural sökning på dokument... \n "
             "Vill du optimera för hastighet eller pricksäkerhet? \n"
             "Spana in dokumentationen (/usage/optimization)"
         ):
             try:
-                results, raw_json = retrieve_doc(question, top_k_reader=top_k_reader, top_k_retriever=top_k_retriever)
+                raw_json = predict(question, max_answers=top_k_reader, max_docs=top_k_retriever)
+                results = raw_json['answers']
             except Exception as e:
                 logging.exception(e)
                 st.error("🐞 &nbsp;&nbsp; Ett fel inträffade under anroppet. Kontrollera log i konsol för att få mer detaljer.")
                 return
 
-        # Show if we use a question of the given set
-        if question == random_question and eval_mode:
-            st.write("## Rätt svar:")
-            random_answer
-
         st.write("## Resultat:")
 
         # Make every button key unique
         count = 0
-
+        
+        # TODO potentially add Eval-Mode
         for result in results:
             if result["answer"]:
                 annotate_answer(result["answer"], result["context"])
-            else:
+            elif result['context']:
                 show_plain_documents(result["context"])
-            st.write("**Relevans:** ", result["relevance"], "**Källa:** ", result["source"])
-            if eval_mode:
-                # Define columns for buttons
-                button_col1, button_col2, button_col3, button_col4 = st.columns([1, 1, 1, 6])
-                if button_col1.button("👍", key=(result["context"] + str(count) + "1"), help="Rätt svar"):
-                    raw_json_feedback = feedback_doc(
-                        question, "true", result["document_id"], 1, "true", result["answer"], result["offset_start_in_doc"]
-                    )
-                    st.success("Tack för din feedback!")
-                if button_col2.button("👎", key=(result["context"] + str(count) + "2"), help="Fel svar och passage"):
-                    raw_json_feedback = feedback_doc(
-                        question,
-                        "false",
-                        result["document_id"],
-                        1,
-                        "false",
-                        result["answer"],
-                        result["offset_start_in_doc"],
-                    )
-                    st.success("Tack för din feedback!")
-                if button_col3.button("👎👍", key=(result["context"] + str(count) + "3"), help="Fel svar, men rätt passage"):
-                    raw_json_feedback = feedback_doc(
-                        question, "false", result["document_id"], 1, "true", result["answer"], result["offset_start_in_doc"]
-                    )
-                    st.success("Tack för din feedback!")
-                count += 1
+            
+            if result['answer'] or result['context']:
+                st.write("**Relevans:** ", result["score"], "**Källa:** ", result["document_id"])
             st.write("___")
         if debug:
             st.subheader("REST API JSON-respons")

@@ -26,6 +26,7 @@ def load_retriever() -> TfidfRetriever:
         language='sv'
     )
     docs = processor.process(doc)
+    print(docs)
 
     document_store.write_documents(docs)
     
@@ -34,12 +35,12 @@ def load_retriever() -> TfidfRetriever:
 def load_reader() -> TransformersReader:
     return TransformersReader(model_name_or_path='susumu2357/bert-base-swedish-squad2', use_gpu=-1)
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_pipeline() -> ExtractiveQAPipeline:
     return ExtractiveQAPipeline(load_reader(), load_retriever())
 
 pipeline = load_pipeline()
 
 @st.cache
-def predict(query: str, max_docs: int, max_answers: int) -> List[dict[str, str]]:
+def predict(query: str, max_docs: int, max_answers: int):
     return pipeline.run(query=query, params={"Retriever": {"top_k": max_docs}, "Reader": {"top_k": max_answers}})

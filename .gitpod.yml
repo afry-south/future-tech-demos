@@ -1,0 +1,7 @@
+tasks:
+  - init: |
+      wget --no-check-certificate https://dl.xpdfreader.com/xpdf-tools-linux-4.03.tar.gz &&
+                   tar -xvf xpdf-tools-linux-4.03.tar.gz && sudo cp xpdf-tools-linux-4.03/bin64/pdftotext /usr/local/bin
+      pip install -r requirements.txt
+    command: |
+      echo 'TODO: start app'
