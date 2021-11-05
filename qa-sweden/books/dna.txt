@@ -1,0 +1,93 @@
+DNA (förkortning av engelskans deoxyribonucleic acid) eller deoxiribonukleinsyra är det kemiska ämne som bär den genetiska informationen (även kallad arvsmassa eller genom), i samtliga av världens kända organismer (med undantag av RNA-virus). DNA-molekylen finns i identiska kopior i varje cell i en organism. Dess huvudsakliga funktion är att långtidsförvara information som påverkar organismernas utveckling och funktion. DNA liknas ibland vid programkod eller ett recept, eftersom det innehåller de instruktioner som behövs för att konstruera cellernas komponenter, RNA och proteiner. De delar av DNA-molekylen som ansvarar för tillverkningen av dessa komponenter kallas gener.
+
+Molekylen består av två långa polymerer, i människan cirka 2 meter lång, bestående av sekvens av enkla enheter kallade nukleotider. Det som ofta brukar kallas DNA-molekylens ryggrad utgörs av sockermolekyler och fosfat-grupper sammansatta med esterbindningar. De två polymererna är lindade runt varandra för att bilda en helix. Bundna till respektive sockermolekyl sitter vanligtvis en av de fyra typer av de molekyler som kallas kvävebaser. Det är denna sekvens av olika kvävebaser längs ryggraden som utgör den genetiska koden, vilken bestämmer ordningen av aminosyror i proteiner. Koden läses av genom att översätta delar av DNA:t till nukleinsyran RNA i en process som kallas transkription.
+
+Inom cellen arrangeras DNA i långa strukturer som kallas kromosomer. Dessa kromosomer fördubblas i en process som kallas replikation innan cellerna delar sig. Informationen kan på så vis bevaras i båda de resulterande cellerna. I de celler som bygger upp eukaryota organismer, så som växter, djur, svampar och protister, finns det mesta av DNA:et i en cellkärna. En mindre del återfinns dock ofta i organismernas mitokondrier eller kloroplaster. Prokaryota celler (bakterier och arkéer) förvarar istället sitt DNA i cytoplasman. Inom kromosomerna finns proteiner så som histoner som packar och organiserar kromosomen till kromatin. Dessa kompakta strukturer reglerar interaktionerna mellan DNA och andra proteiner och kontrollerar på så vis bland annat i vilken grad olika delar av kromosomen transkriberas.
+
+En gen i arvsmassan är en sekvens av nukleotider i en DNA-molekyl i någon av kromosomerna, som översätts till en motsvarande ordningsföljd av aminosyror i ett protein. Denna ordningsföljd avgör vilken form proteinet får och vilken funktion det kan fylla i kroppen. Översättningen från nukleotider i DNA till aminosyror i proteiner sker enligt den genetiska koden. För varje grupp om tre nukleotider i DNA-molekylen läggs vid översättningen en enda aminosyra till i det protein som tar form.[1]
+
+DNA är en nukleinsyra som är uppbyggd av två långa kedjor av nukleotider. Varje nukleotid kan sägas bestå av tre delar: en molekyl av sockerarten deoxiribos, en fosfatgrupp och en av de fyra kvävebaserna adenin (A), guanin (G), cytosin (C) och tymin (T). Kvävebasernas ordningsföljd i DNA-molekylen bestämmer uppbyggnaden av kroppens alla proteiner.[1]
+
+DNA-molekylen kan finnas i flera något olika former. Hos vissa virus finns enkelsträngat DNA, ibland förkortat ssDNA (där ss står för ”single strand”) men den vanligaste är den dubbelspiral, så kallad dubbelhelix, av två nukleotidkedjor, som upptäcktes och beskrevs av Francis Crick och James Watson 1953[2]. Tillsammans med Maurice Wilkins mottog de nobelpriset i medicin 1962 för sin upptäckt. Dubbelsträngat DNA förkortas ibland dsDNA (där ds står för ”double strand”).[1]
+
+I denna form som brukar kallas B består DNA-molekylen av två kedjor där nukleotidernas socker- och fosfatdelar är vända utåt och bildar två ”ryggrader” som är ihoptvinnade till en dubbel spiral. Kvävebaserna är vända inåt mot spiralernas mitt där de parvis, en bas från varje kedja, är hopkopplade med vätebindningar.[1]
+
+Baserna kan inte kopplas ihop hur som helst: en adeninbas i den ena kedjan är alltid bunden till en tyminbas i den andra, detta genom två vätebindningar, medan en cytosinbas alltid är bunden till en guaninbas i den andra kedjan och detta genom tre vätebindningar. På så sätt är den ena kedjan den andra kedjans ”komplement”; från en kedja kan man alltid återskapa den andra. Detta är grunden för DNA-molekylens funktion som bärare av den genetiska informationen. Ett högre antal vätebindningar, alltså fler cytosin-guanin-kopplingar, gör molekylen mer värmetålig[3] och återfinns därför ofta hos termofila bakterier.[1]
+
+DNA-molekylen följer Chargaffs regel, vilken säger att det alltid finns lika många adenosinbaser som tyminbaser och lika många cytosinbaser som guaninbaser.[4] Två nukleotider ihopkopplade via sina kvävebaser på detta sätt kallas ett baspar. Det går cirka tio baspar per varv i DNA-spiralen. Varje sådant varv har en höjd av cirka 3,4 nanometer, diametern på spiralen är cirka två nanometer.[5]
+
+I alla högre organismer finns DNA-molekylerna i kombinationer med proteiner, histoner, i en tätpackad form som kallas kromatin i cellens kromosomer.[1]
+
+Replikation
+
+DNA som delar sig och skapar en kopia av sig själv.
+Huvudartikel: Replikation
+Replikation är den process som dubblerar DNA-molekylen vid celldelningen så att en kopia av molekylen kan hamna i varje dottercell. På så sätt förs den genetiska informationen vidare från cellgeneration till cellgeneration.[1]
+
+Replikationen i en eukaryot cell är omfångsrik och komplex. Flera olika enzym deltar i reaktionerna och det krävs både snabba och exakta metoder vilket uppfylls genom att en rad olika enzym verkar tillsammans.[1]
+
+Vid celldelningen rätas dubbelspiralen i DNA-molekylen ut, och de två kedjorna skiljs åt likt de två delarna av ett blixtlås under inverkan av enzymet helikas. Med hjälp av ett flertal proteiner och enzymer varav det viktigaste är DNA-polymeras byggs en ny komplementär kedja upp genom att matchande nukleotider läggs på plats. Snart har två nya kompletta identiska DNA-molekyler bildats. De två nya DNA-molekylerna hamnar sedan i varsin dottercell.[1]
+
+Oftast sker denna DNA-replikation utan problem och de båda nya DNA-molekylerna blir identiska med den ursprungliga. Ibland inträffar emellertid ett fel i kopieringen och den genetiska informationen har förändrats; en mutation har uppstått. De allra flesta mutationerna repareras av cellerna själva. Cellen har olika system för att upptäcka och reparera sådana felkopieringar, till exempel mismatch repair. Olika former av yttre påverkan som till exempel högenergetisk strålning eller olika kemikalier ökar antalet mutationer.[1]
+
+En mutation i könscellerna som inte repareras, utan sprids genom fortplantningen till nya individer som överlever och i sin tur kan fortplanta sig, förorsakar en alternativ allel, det vill säga en ny variant av gensekvensen som får spridning i populationen. Vissa alleler ger upphov till nya egenskaper (en ny morf, det vill säga form, inom arten), medan andra saknar biologisk betydelse.
+
+Transkription
+Huvudartikel: Transkription (cellbiologi)
+Den genetiska informationen i DNA-molekylen är uppdelad i bitar, gener, som var och en utgör ett recept på, en instruktion för, hur ett protein ska tillverkas. Informationsflödet, när receptet för ett protein ska överföras till cellens ribosomer där proteinsyntesen sker, går via RNA-kopior av genen.[1]
+
+Denna process när DNA-information förs över till RNA-information kallas transkription. Vid transkriptionen översätts en gens bassekvens i en av DNA-kedjorna till motsvarande sekvens av baser i en RNA-molekyl. Den på så sätt skapade RNA-typen kallas budbärar-RNA eller mRNA (av engelska messenger-RNA), eftersom den fungerar som en ”budbärare” från DNA i cellkärnan till proteintillverkningen i ribosomerna. Till skillnad från DNA, som har de kemiska bokstäverna A, C, T och G, så har budbärar-RNA bokstaven U för uracil i stället för T, vilket ger A, C, U och G.[1]
+
+I eukaryota celler sker transkriptionen till mRNA ofta i flera steg. I det första steget tillverkas en preliminär mRNA (pre-mRNA) genom direkt transkription av den ursprungliga DNA-sekvensen. Denna preliminära mRNA redigeras sedan genom att intron-sekvenser (sekvenser som inte kodar några aminosyror) tas bort. De kvarvarande bitarna, (exonerna), kombineras sedan ihop till den slutliga mRNA-sekvensen.[1]
+
+Forskningshistoria
+
+Francis Crick
+Friedrich Miescher (1844–1895) beskrev första gången 1869 en substans som han kallade ”nuklein”, som han funnit i cellkärnor. Miescher utgick från vita blodkroppar från variga bandage som suttit på infekterade sår.[6] 1889 fick ämnet namnet ”nukleinsyra” av Mieschers elev Richard Altmann. Man fann att ämnet endast existerade i kromosomerna, vilka hade upptäckts bara några år tidigare.[7]
+
+Varken nukleinsyrans eller cellkärnas funktion var dock klarlagd vid denna tid. När Gregor Mendel upptäckte ärftlighetsprinciperna på 1860-talet, och när Mendels resultat återupptäcktes i början av 1900-talet, var det oklart var i cellerna arvsanlagen fanns, och vilka molekyler som var bärare av dem.
+
+Mellan 1885 och 1901 så arbetade fysiologen Albrecht Kossel med att isolera nukleinsyrans kemiska beståndsdelar. Slutligen kunde han visa att nukleinsyran bestod av cytosin, guanin, tymin, adenin och uracil.[8] Cytosin, guanin och tymin och adenin är beståndsdelar i DNA, medan de tre första och uracil (i stället för adenin) återfinns i RNA-molekylen.[9]
+
+1929 visade Phoebus Levene att nukleotider med fyra olika baser var byggstenarna i DNA.[6]
+
+På 1930-talet genomförde Max Delbrück med flera experiment som visade att man genom att utsätta celler för röntgenstrålar kunde förändra de ärftliga egenskaperna hos cellerna. Det föreslogs att kromosomernas kemiska struktur på något sätt bestämde dessa ärftliga egenskaper. Precis hur denna kemiska struktur kunde påverka en organisms egenskaper och beteende föreföll oförklarligt vid denna tidpunkt. De kemiska undersökningarna av olika nukleinsyrepreparat gav alltid samma resultat i form av de fyra typerna av nukleotider i ungefär samma proportioner. Kromosomernas kemiska uppbyggnad föreföll alltså enkel och likformig vilket stod i stark kontrast till de levande organismernas komplexitet, mångfald och variation.
+
+1944 visade Oswald Avery att DNA kunde bära genetisk information, genom ett experiment där olika pneumokockstammars egenskaper förändrades genom överföring av DNA.[6] Enligt den svenska kemiprofessorn Claes Gustafsson var upptäckten att den genetiska informationen lagras i DNA och förståelsen för hur denna information nedärvs en av 1900-talets största vetenskapliga bedrifter.[6]
+
+På 1950-talet pågick forskning om DNA-molekylens struktur endast på några få ställen. En grupp forskare i USA leddes av Linus Pauling. I England intresserade sig två grupper för problemet. Vid University of Cambridge fanns bland andra Francis Crick och James Watson och vid King’s College i London arbetade Maurice Wilkins och Rosalind Franklin med att med hjälp av röntgendiffraktion fastställa DNA-molekylens struktur. 1948 hade Pauling upptäckt att många proteiner hade en helixstruktur, och de första undersökningarna med röntgendiffraktion antydde att även DNA hade en sådan struktur, men någon detaljerad förståelse av molekylens uppbyggnad hade man ännu inte.
+
+Crick och Watson försökte konstruera rimliga modeller utgående från kända fakta, men antalet möjligheter var fortfarande många. Ett genombrott skedde när den österrikiske kemisten Erwin Chargaff besökte Cambridge och beskrev ett av sina experiment. Han hade fastställt att prover av DNA inte alltid hade samma proportioner av de olika nukleotiderna, men att de alltid hade lika koncentration av adenin som av tymin och lika koncentration av guanin som av cytosin.[4] Crick och Watson började fundera på strukturer som innefattade två trådar med kompletterande nukleotidbaser bundna till varandra. Med hjälp av information från Rosalind Franklins röntgendiffraktionsbilder lyckades de finna en modell som stämde med all kända fakta. Den hade en spiralstruktur med två nanometers tjocklek och en höjd av cirka 3,4 nanometer per varv omfattande cirka tio baspar. De publicerade sina idéer innan Franklin själv hade offentliggjort några av sina resultat.
+
+Det har efteråt blivit en kontroversiell fråga hur mycket Watson och Crick varit beroende av Franklins data för att komma fram till sin modell, och många har anklagat dem för att inte ge henne tillräckligt erkännande av hennes betydelse i upptäckten av DNA-molekylens struktur. Mest omdebatterat är det faktum att Wilkins tydligen visat Franklins bilder för Watson och Crick när Franklin inte själv var närvarande. Wilkins, Watson och Crick fick nobelpriset i medicin 1962 för sina upptäckter. Vid denna tidpunkt hade Franklin avlidit.[10]
+
+Watsons och Cricks modell väckte stor uppmärksamhet när den publicerats. Efter att ha kommit fram till sin modell 21 februari 1953, gjorde de sina första uttalanden den 28 februari. Den 25 april publicerades deras artikel A structure for Deoxiribose Nucleic Acid.[2] Forskningen om genetikens och molekylärbiologins grundvalar tog sedan fart. I en föreläsning 1957 redogjorde Crick för sina idéer om kopplingen mellan DNA, RNA och proteiner: ”DNA ger RNA ger protein”, något som har kommit att kallas molekylärbiologins ”centrala dogma”.[11] Crick och hans medarbetare fortsatte sedan under slutet av 1950-talet med arbetet med att knäcka den genetiska koden.
+
+Nobelpriset i kemi 2015
+Nobelpriset i kemi 2015 tilldelades tre forskare som studerat hur skadat DNA kontinuerligt repareras och hur kopieringsmisstag korrigeras.[6]
+
+Tomas Lindahl för påvisande att tusentals spontant uppkomna arvsmasseskador kräver ett reparationsmaskineri, sedermera känt som base excision repair.
+Paul Modrich för upptäckter kring det molekylära maskineri som låter celler reparera felaktiga baspar vid kopiering, så kallad mismatch repair.
+Aziz Sancar för upptäckter hur yttre DNA-skador från exempelvis ultraviolett ljus och rökning kan repareras genom nucleotide excision repair.
+Användning och teknik
+Biologisk forskning och medicinska tillämpningar
+DNA-tester utförs genom DNA-sekvensiering och innebär kartläggning av DNA-informationen. DNA-tester används idag närmast rutinmässigt inom biologisk forskning, till exempel för att fastställa ursprung, sjukdomstillstånd eller arttillhörighet. DNA-delar av intresse massdupliceras först med hjälp av PCR-teknik [12]; därpå sekvenseras[13] den. Den erhållna DNA-sekvensen (oftast en gen) kan därefter användas för att jämföra sekvensen med motsvarande sekvens hos andra arter, eller andra individer av samma art.
+
+Genetisk modifiering innebär att konstgjort DNA eller DNA från andra individer tillförs genomet hos en individ för att förändra eller tillföra egenskaper för individen.
+
+Anlag för ärftliga sjukdomar kan diagnosticeras med DNA-tester.
+
+Kriminalteknik och juridik
+Fördjupning: DNA-släktforskning § DNA-familjesökning och DNA-släktforskning i kriminalfall
+Kriminaltekniker kan använda DNA-analys av blod, sperma, hud, saliv, nagel, tand eller hår för att identifiera brottslingar och ursprung. En bit DNA kan fungera som ett genetiskt fingeravtryck genom att delar av DNA-sekvensen som ofta varierar mellan individer jämförs. Detta kallas DNA-profilering[14]. Metoden är väldigt tillförlitlig när det gäller att matcha DNA.[15] Identifiering kompliceras däremot av att en brottsplats kan kontamineras med DNA från flera individer.[16] DNA-bevisning kan även användas för att fria vissa tidigare dömda brottslingar, som Darryl Hunt som satt nära tjugo år i fängelse som oskyldigt dömd.
+
+DNA-profilering används också för att fastställa släktskap vid faderskapsutredningar.
+
+Sedan den 1 januari 2019 tillåter svensk lag familjesökning och DNA-släktforskning av dna-profiler från spår på brottsplatser, både genom sökning i polisens egna DNA-register och i kommersiella släktforskningsdatabaser efter släktingar till misstänkta eller mordoffer.
+
+Antropologi
+Genom att DNA muterar över tiden och sedan dessa förändringar ärvs av följande generationer, innehåller DNA historisk information och DNA-sekvenser från olika arter kan jämföras för att fastställa arternas fylogeni, deras genetiska släktskap.[17] På så sätt kan fylogenetiska träd ritas upp över hur olika arter är besläktade, och tidpunkt för när de förgrenades från varandra kan uppskattas.
+
+Släktforskning
+Fördjupning: DNA-släktforskning
+Privatpersoner såväl som arkeologer har börjat använda DNA-tester som metod för släktforskning, för att hitta eller verifiera släktskap, för att identifiera rötter i etniska folkgrupper och för att kartlägga migration. Ofta krävs dock omfattande traditionell släktforskning för att kunna dra slutsatser av DNA-testerna om släktskap. Hela arvsmassan behöver i allmänhet inte analyseras, eftersom merparten av den kodande delen av arvsmassan är identisk inom en art. Analysföretagen har valt ut specifika genpositioner som är av intresse, exempelvis för att de är kända för att variera inom populationen, och studerar dem med PCR-teknik.

@@ -2,18 +2,20 @@ from typing import List
 import streamlit as st
 
 from haystack.file_converter.pdf import PDFToTextConverter
+from haystack.file_converter.txt import TextConverter
+from haystack.preprocessor.utils import convert_files_to_dicts
 from haystack.reader import FARMReader, TransformersReader
-from haystack.document_store import InMemoryDocumentStore
+from haystack.document_store import InMemoryDocumentStore, ElasticsearchDocumentStore
 from haystack.preprocessor import PreProcessor
-from haystack.retriever.sparse import TfidfRetriever
+from haystack.retriever.sparse import TfidfRetriever, ElasticsearchRetriever
+from haystack.retriever.dense import DensePassageRetriever
 from haystack.pipeline import ExtractiveQAPipeline
 from haystack.utils import print_answers
 
-def load_retriever() -> TfidfRetriever:
+def load_retriever() -> DensePassageRetriever:
     document_store = InMemoryDocumentStore()
-
-    converter = PDFToTextConverter(remove_numeric_tables=True, valid_languages=['sv'])
-    doc = converter.convert(file_path='qa-sweden/omsverige_v7_se.pdf', encoding='UTF-8', meta=None)
+    
+    docs = convert_files_to_dicts('qa-sweden/books')
 
     processor = PreProcessor(
         clean_empty_lines=True,
@@ -25,15 +27,15 @@ def load_retriever() -> TfidfRetriever:
         split_overlap=0,
         language='sv'
     )
-    docs = processor.process(doc)
-    print(docs)
+
+    docs = processor.process(docs)
 
     document_store.write_documents(docs)
     
-    return TfidfRetriever(document_store=document_store)
+    return TfidfRetriever(document_store=document_store)    
 
 def load_reader() -> TransformersReader:
-    return TransformersReader(model_name_or_path='susumu2357/bert-base-swedish-squad2', use_gpu=-1)
+    return TransformersReader(model_name_or_path='KB/bert-base-swedish-cased-squad-experimental', use_gpu=-1)
 
 @st.cache(allow_output_mutation=True)
 def load_pipeline() -> ExtractiveQAPipeline:
