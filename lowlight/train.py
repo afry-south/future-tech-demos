@@ -9,7 +9,7 @@ import argparse
 import time
 import dataloader
 import model
-import Myloss
+import loss as Myloss
 import numpy as np
 from torchvision import transforms
 

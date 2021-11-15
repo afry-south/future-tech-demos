@@ -28,6 +28,8 @@ class DVCAddPipelineStep(object):
         wait_for_enter()
         print(" $ git commit 'data added with first pipeline step'")
         wait_for_enter()
+        print(" $ dvc repro")
+        wait_for_enter()
 
 if __name__ == "__main__":
     context = {"username": sys.argv[1]}

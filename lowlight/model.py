@@ -57,10 +57,7 @@ class enhance_net_nopool(nn.Module):
 		return enhance_image
 		
 	def forward(self, x):
-		if self.scale_factor==1:
-			x_down = x
-		else:
-			x_down = F.interpolate(x, scale_factor = 1 / self.scale_factor, mode='bilinear')
+		x_down = x if self.scale_factor==1 else F.interpolate(x, scale_factor = 1 / self.scale_factor, mode='bilinear')
 
 		x1 = self.relu(self.e_conv1(x_down))
 		x2 = self.relu(self.e_conv2(x1))
@@ -70,7 +67,7 @@ class enhance_net_nopool(nn.Module):
 		x6 = self.relu(self.e_conv6(torch.cat([x2, x5], 1)))
 		x_r = F.tanh(self.e_conv7(torch.cat([x1, x6], 1)))
 
-        x_r = x_r if self.scale_factor==1 else self.upsample(x_r)
+		x_r = x_r if self.scale_factor==1 else self.upsample(x_r)
 		
-        enhance_image = self.enhance(x, x_r)
+		enhance_image = self.enhance(x, x_r)
 		return enhance_image,x_r
