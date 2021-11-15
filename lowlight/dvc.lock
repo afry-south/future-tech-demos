@@ -1,0 +1,13 @@
+schema: '2.0'
+stages:
+  download_data:
+    cmd: ./download_data.sh
+    deps:
+    - path: download_data.sh
+      md5: 4f691287194e6f6e22847e04f008d735
+      size: 114
+    outs:
+    - path: lol_dataset
+      md5: f41438feaf7ad100fcb22a5ebbdf297e.dir
+      size: 348077423
+      nfiles: 1003

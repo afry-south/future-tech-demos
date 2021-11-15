@@ -1,0 +1,7 @@
+stages:
+  download_data:
+    cmd: ./download_data.sh
+    deps:
+    - download_data.sh
+    outs:
+    - lol_dataset
