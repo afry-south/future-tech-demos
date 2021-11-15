@@ -65,7 +65,7 @@ class enhance_net_nopool(nn.Module):
 		x4 = self.relu(self.e_conv4(x3))
 		x5 = self.relu(self.e_conv5(torch.cat([x3, x4], 1)))
 		x6 = self.relu(self.e_conv6(torch.cat([x2, x5], 1)))
-		x_r = F.tanh(self.e_conv7(torch.cat([x1, x6], 1)))
+		x_r = torch.tanh(self.e_conv7(torch.cat([x1, x6], 1)))
 
 		x_r = x_r if self.scale_factor==1 else self.upsample(x_r)
 		

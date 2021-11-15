@@ -12,7 +12,7 @@ import random
 random.seed(1143)
 
 def populate_train_list(lowlight_images_path):
-	image_list_lowlight = glob.glob(lowlight_images_path + "*.jpg")
+	image_list_lowlight = glob.glob(lowlight_images_path + "*.jpg")[:10]
 	train_list = image_list_lowlight
 	random.shuffle(train_list)
 

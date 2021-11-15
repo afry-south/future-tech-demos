@@ -25,7 +25,7 @@ def weights_init(m):
 def train(config):
 	os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 	scale_factor = config.scale_factor
-	DCE_net = model.enhance_net_nopool(scale_factor).cuda()
+	DCE_net = model.enhance_net_nopool(scale_factor)
 
 	# DCE_net.apply(weights_init)
 	if config.load_pretrain == True:
@@ -47,7 +47,7 @@ def train(config):
 	for epoch in range(config.num_epochs):
 		for iteration, img_lowlight in enumerate(train_loader):
 
-			img_lowlight = img_lowlight.cuda()
+			img_lowlight = img_lowlight
 
 			E = 0.6
 
@@ -62,7 +62,7 @@ def train(config):
 
 			optimizer.zero_grad()
 			loss.backward()
-			torch.nn.utils.clip_grad_norm(DCE_net.parameters(), config.grad_clip_norm)
+			torch.nn.utils.clip_grad_norm_(DCE_net.parameters(), config.grad_clip_norm)
 			optimizer.step()
 
 			if ((iteration+1) % config.display_iter) == 0:
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 
 	# Input Parameters
-	parser.add_argument('--lowlight_images_path', type=str, default="data/train_data/")
+	parser.add_argument('--lowlight_images_path', type=str, default="train_data/")
 	parser.add_argument('--lr', type=float, default=0.0001)
 	parser.add_argument('--weight_decay', type=float, default=0.0001)
 	parser.add_argument('--grad_clip_norm', type=float, default=0.1)
