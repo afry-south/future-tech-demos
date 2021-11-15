@@ -4,10 +4,10 @@ stages:
     cmd: ./download_data.sh
     deps:
     - path: download_data.sh
-      md5: 4f691287194e6f6e22847e04f008d735
-      size: 114
+      md5: 1fc308611c9a27a30bc81dc212d6cc75
+      size: 116
     outs:
-    - path: lol_dataset
-      md5: f41438feaf7ad100fcb22a5ebbdf297e.dir
-      size: 348077423
-      nfiles: 1003
+    - path: train_data
+      md5: 9933961cc819e6644484d96ff2b7062e.dir
+      size: 73484915
+      nfiles: 2002

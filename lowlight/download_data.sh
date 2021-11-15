@@ -1,3 +1,3 @@
-gdown https://drive.google.com/uc?id=1DdGIJ4PZPlF2ikl8mNM9V-PdVxVLbQi6
-unzip -q lol_dataset.zip
-rm lol_dataset.zip
+gdown https://drive.google.com/u/0/uc?id=1GAB3uGsmAyLgtDBDONbil08vVu5wJcG3
+unzip -q train_data.zip
+rm train_data.zip

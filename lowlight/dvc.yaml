@@ -4,4 +4,4 @@ stages:
     deps:
     - download_data.sh
     outs:
-    - lol_dataset
+    - train_data
