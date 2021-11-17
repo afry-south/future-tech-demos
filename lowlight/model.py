@@ -45,16 +45,18 @@ class enhance_net_nopool(nn.Module):
 		self.e_conv7 = CSDN_Tem(number_f * 2, 3) 
 
 	def enhance(self, x, x_r): # TODO validate if 8 loop works as fast!
-		x = x + x_r*(torch.pow(x, 2) - x)
-		x = x + x_r*(torch.pow(x, 2) - x)
-		x = x + x_r*(torch.pow(x, 2) - x)
-		enhance_image_1 = x + x_r * (torch.pow(x, 2) - x)
-		x = enhance_image_1 + x_r * (torch.pow(enhance_image_1, 2) - enhance_image_1)
-		x = x + x_r * (torch.pow(x, 2) - x)	
-		x = x + x_r * (torch.pow(x, 2) - x)
-		enhance_image = x + x_r * (torch.pow(x, 2) - x)	
+		for i in range(8):
+			x = x + x_r * (torch.pow(x, 2) - x)
+		#x = x + x_r * (torch.pow(x, 2) - x)
+		#x = x + x_r * (torch.pow(x, 2) - x)
+		#x = x + x_r * (torch.pow(x, 2) - x)
+		#enhance_image_1 = x + x_r * (torch.pow(x, 2) - x)
+		#x = enhance_image_1 + x_r * (torch.pow(enhance_image_1, 2) - enhance_image_1)
+		#x = x + x_r * (torch.pow(x, 2) - x)	
+		#x = x + x_r * (torch.pow(x, 2) - x)
+		#enhance_image = x + x_r * (torch.pow(x, 2) - x)	
 
-		return enhance_image
+		return x
 		
 	def forward(self, x):
 		x_down = x if self.scale_factor==1 else F.interpolate(x, scale_factor = 1 / self.scale_factor, mode='bilinear')
