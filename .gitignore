@@ -1,2 +1,7 @@
 xpdf-*
 __pycache__/
+lowlight/result_Zero_DCE++/
+lowlight/snapshots_Zero_DCE++/
+lowlight/test_data/
+.DS_Store
+.vscode/
