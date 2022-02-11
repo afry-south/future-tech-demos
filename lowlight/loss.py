@@ -6,6 +6,7 @@ from torchvision.models.vgg import vgg16
 
 import numpy as np
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class L_color(nn.Module):
     def __init__(self):
@@ -26,11 +27,10 @@ class L_color(nn.Module):
 class L_spa(nn.Module):
     def __init__(self):
         super(L_spa, self).__init__()
-        # print(1)kernel = torch.FloatTensor(kernel).unsqueeze(0).unsqueeze(0)
-        kernel_left = torch.FloatTensor( [[0,0,0], [-1,1,0], [0,0,0]]).unsqueeze(0).unsqueeze(0)
-        kernel_right = torch.FloatTensor( [[0,0,0], [0,1,-1], [0,0,0]]).unsqueeze(0).unsqueeze(0)
-        kernel_up = torch.FloatTensor( [[0,-1,0], [0,1,0], [0,0,0]]).unsqueeze(0).unsqueeze(0)
-        kernel_down = torch.FloatTensor( [[0,0,0], [0,1,0], [0,-1,0]]).unsqueeze(0).unsqueeze(0)
+        kernel_left = torch.tensor( [[0,0,0], [-1,1,0], [0,0,0]], dtype=torch.float, device=device).unsqueeze(0).unsqueeze(0)
+        kernel_right = torch.tensor( [[0,0,0], [0,1,-1], [0,0,0]], dtype=torch.float, device=device).unsqueeze(0).unsqueeze(0)
+        kernel_up = torch.tensor( [[0,-1,0], [0,1,0], [0,0,0]], dtype=torch.float, device=device).unsqueeze(0).unsqueeze(0)
+        kernel_down = torch.tensor( [[0,0,0], [0,1,0], [0,-1,0]], dtype=torch.float, device=device).unsqueeze(0).unsqueeze(0)
 
         self.weight_left = nn.Parameter(data=kernel_left, requires_grad=False)
         self.weight_right = nn.Parameter(data=kernel_right, requires_grad=False)
@@ -46,10 +46,6 @@ class L_spa(nn.Module):
 
         org_pool =  self.pool(org_mean)	
         enhance_pool = self.pool(enhance_mean)
-
-        weight_diff = torch.max(torch.FloatTensor([1]) + 10000*torch.min(org_pool - torch.FloatTensor([0.3]), torch.FloatTensor([0])), torch.FloatTensor([0.5]))
-        E_1 = torch.mul(torch.sign(enhance_pool - torch.FloatTensor([0.5])) ,enhance_pool-org_pool)
-
 
         D_org_letf = F.conv2d(org_pool , self.weight_left, padding=1)
         D_org_right = F.conv2d(org_pool , self.weight_right, padding=1)
@@ -71,19 +67,16 @@ class L_spa(nn.Module):
         return E
 
 class L_exp(nn.Module):
-
     def __init__(self,patch_size):
         super(L_exp, self).__init__()
-        # print(1)
         self.pool = nn.AvgPool2d(patch_size)
         # self.mean_val = mean_val
-    def forward(self, x, mean_val ):
-
+    def forward(self, x, mean_val):
         b,c,h,w = x.shape
         x = torch.mean(x,1,keepdim=True)
         mean = self.pool(x)
 
-        d = torch.mean(torch.pow(mean - torch.FloatTensor([mean_val] ), 2))
+        d = torch.mean(torch.pow(mean - torch.tensor([mean_val], dtype=torch.float, device=device).to(), 2))
         return d
         
 class L_TV(nn.Module):
@@ -97,13 +90,14 @@ class L_TV(nn.Module):
         w_x = x.size()[3]
         count_h =  (x.size()[2]-1) * x.size()[3]
         count_w = x.size()[2] * (x.size()[3] - 1)
-        h_tv = torch.pow((x[:,:,1:,:]-x[:,:,:h_x-1,:]),2).sum()
-        w_tv = torch.pow((x[:,:,:,1:]-x[:,:,:,:w_x-1]),2).sum()
-        return self.TVLoss_weight*2*(h_tv/count_h+w_tv/count_w)/batch_size
+        h_tv = torch.pow((x[:,:,1:,:] - x[:,:,:h_x-1,:]),2).sum()
+        w_tv = torch.pow((x[:,:,:,1:] - x[:,:,:,:w_x-1]),2).sum()
+        return self.TVLoss_weight*2*(h_tv / count_h + w_tv / count_w) / batch_size
+
 class Sa_Loss(nn.Module):
     def __init__(self):
         super(Sa_Loss, self).__init__()
-        # print(1)
+
     def forward(self, x ):
         # self.grad = np.ones(x.shape,dtype=np.float32)
         b,c,h,w = x.shape
@@ -115,8 +109,6 @@ class Sa_Loss(nn.Module):
         Dg = g-mg
         Db = b-mb
         k =torch.pow( torch.pow(Dr,2) + torch.pow(Db,2) + torch.pow(Dg,2),0.5)
-        # print(k)
-        
 
         k = torch.mean(k)
         return k
@@ -124,10 +116,9 @@ class Sa_Loss(nn.Module):
 class perception_loss(nn.Module):
     def __init__(self):
         super(perception_loss, self).__init__()
-        # vgg = vgg16(pretrained=True).cuda()
         features = vgg16(pretrained=True).features
-        self.to_relu_1_2 = nn.Sequential() 
-        self.to_relu_2_2 = nn.Sequential() 
+        self.to_relu_1_2 = nn.Sequential()
+        self.to_relu_2_2 = nn.Sequential()
         self.to_relu_3_3 = nn.Sequential()
         self.to_relu_4_3 = nn.Sequential()
 
@@ -145,12 +136,8 @@ class perception_loss(nn.Module):
 
     def forward(self, x):
         h = self.to_relu_1_2(x)
-        h_relu_1_2 = h
         h = self.to_relu_2_2(h)
-        h_relu_2_2 = h
         h = self.to_relu_3_3(h)
-        h_relu_3_3 = h
         h = self.to_relu_4_3(h)
-        h_relu_4_3 = h
-        # out = (h_relu_1_2, h_relu_2_2, h_relu_3_3, h_relu_4_3)
-        return h_relu_4_3
+        
+        return h

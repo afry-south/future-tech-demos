@@ -13,6 +13,7 @@ import loss as Myloss
 import numpy as np
 from torchvision import transforms
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def weights_init(m):
     classname = m.__class__.__name__
@@ -26,7 +27,7 @@ def weights_init(m):
 def train(config):
     os.environ["CUDA_VISIBLE_DEVICES"] = "0"
     scale_factor = config.scale_factor
-    DCE_net = model.enhance_net_nopool(scale_factor)
+    DCE_net = model.enhance_net_nopool(scale_factor).to(device)
 
     # DCE_net.apply(weights_init)
     if config.load_pretrain == True:
@@ -41,11 +42,10 @@ def train(config):
         pin_memory=True,
     )
 
-    L_color = Myloss.L_color()
-    L_spa = Myloss.L_spa()
-    L_exp = Myloss.L_exp(16)
-    # L_exp = Myloss.L_exp(16,0.6)
-    L_TV = Myloss.L_TV()
+    L_color = Myloss.L_color().to(device)
+    L_spa = Myloss.L_spa().to(device)
+    L_exp = Myloss.L_exp(16).to(device)
+    L_TV = Myloss.L_TV().to(device)
 
     optimizer = torch.optim.Adam(
         DCE_net.parameters(), lr=config.lr, weight_decay=config.weight_decay
@@ -57,6 +57,7 @@ def train(config):
     for epoch in range(config.num_epochs):
         print("Moving into epoch")
         for iteration, img_lowlight in enumerate(train_loader):  # TODO load a batch at a time..?
+            img_lowlight = img_lowlight.to(device)
             enhanced_image, A = DCE_net(img_lowlight)
             
             Loss_TV = 1600 * L_TV(A)  # Loss_TV = 200*L_TV(A)

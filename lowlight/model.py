@@ -44,17 +44,8 @@ class enhance_net_nopool(nn.Module):
 		self.e_conv6 = CSDN_Tem(number_f * 2, number_f) 
 		self.e_conv7 = CSDN_Tem(number_f * 2, 3) 
 
-	def enhance(self, x, x_r): # TODO validate if 8 loop works as fast!
-		for i in range(8):
-			x = x + x_r * (torch.pow(x, 2) - x)
-		#x = x + x_r * (torch.pow(x, 2) - x)
-		#x = x + x_r * (torch.pow(x, 2) - x)
-		#x = x + x_r * (torch.pow(x, 2) - x)
-		#enhance_image_1 = x + x_r * (torch.pow(x, 2) - x)
-		#x = enhance_image_1 + x_r * (torch.pow(enhance_image_1, 2) - enhance_image_1)
-		#x = x + x_r * (torch.pow(x, 2) - x)	
-		#x = x + x_r * (torch.pow(x, 2) - x)
-		#enhance_image = x + x_r * (torch.pow(x, 2) - x)	
+	def enhance(self, x, x_r):
+		for _ in range(8): x = x + x_r * (torch.pow(x, 2) - x)
 
 		return x
 		
@@ -70,6 +61,6 @@ class enhance_net_nopool(nn.Module):
 		x_r = torch.tanh(self.e_conv7(torch.cat([x1, x6], 1)))
 
 		x_r = x_r if self.scale_factor==1 else self.upsample(x_r)
-		
 		enhance_image = self.enhance(x, x_r)
-		return enhance_image,x_r
+
+		return enhance_image, x_r

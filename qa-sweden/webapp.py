@@ -1,5 +1,3 @@
-import os
-import sys
 import logging
 import pandas as pd
 import streamlit as st
@@ -21,6 +19,7 @@ def annotate_answer(answer, context):
 def main():
     # UI search bar and sidebar
     st.write("# AFRY Future Tech (IT Syd) QA Demo")
+
     st.sidebar.header("Variabler")
     top_k_reader = st.sidebar.slider("Max. antal svar", min_value=1, max_value=10, value=3, step=1)
     top_k_retriever = st.sidebar.slider(
